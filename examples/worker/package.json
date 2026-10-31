@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-mailchannels-example-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "init-mailchannels": "cloudflare-mailchannels init",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "cloudflare-mailchannels": "file:../.."
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}
