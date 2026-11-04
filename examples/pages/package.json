@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-mailchannels-example-pages",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "init-mailchannels": "cloudflare-mailchannels init",
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public"
+  },
+  "dependencies": {
+    "cloudflare-mailchannels": "file:../.."
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}

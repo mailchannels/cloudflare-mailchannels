@@ -1,0 +1,63 @@
+{
+  "name": "cloudflare-mailchannels",
+  "version": "0.1.0",
+  "description": "Send email from Cloudflare Workers and Pages with the MailChannels Email API, with an init command that creates a free account and stores its key as a Worker secret.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "MailChannels",
+    "email": "dev@mailchannels.com"
+  },
+  "homepage": "https://github.com/mailchannels/cloudflare-mailchannels#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mailchannels/cloudflare-mailchannels.git"
+  },
+  "keywords": [
+    "mailchannels",
+    "cloudflare",
+    "cloudflare-workers",
+    "cloudflare-pages",
+    "pages-plugin",
+    "email",
+    "transactional-email"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./pages": {
+      "types": "./pages.d.ts",
+      "default": "./dist/pages/index.js"
+    }
+  },
+  "main": "./src/index.js",
+  "types": "./index.d.ts",
+  "bin": {
+    "cloudflare-mailchannels": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist",
+    "index.d.ts",
+    "pages.d.ts"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "wrangler pages functions build pages/functions --plugin --outdir=dist/pages",
+    "test": "vitest run",
+    "test:e2e": "node test/e2e/run.js",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "mailchannels-sdk": "^1.8.0"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4",
+    "wrangler": "^4.45.0"
+  }
+}

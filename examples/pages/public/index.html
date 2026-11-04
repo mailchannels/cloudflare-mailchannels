@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>MailChannels on Cloudflare Pages</title>
+<h1>MailChannels on Cloudflare Pages</h1>
+<form id="send">
+  <label>To <input name="to" type="email" required></label>
+  <label>Subject <input name="subject" required></label>
+  <label>Message <textarea name="text" required></textarea></label>
+  <button>Send</button>
+</form>
+<pre id="result"></pre>
+<script>
+document.getElementById('send').addEventListener('submit', async (event) => {
+  event.preventDefault()
+  const body = Object.fromEntries(new FormData(event.target))
+  const response = await fetch('/api/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+  document.getElementById('result').textContent = JSON.stringify(await response.json(), null, 2)
+})
+</script>
+</html>
