@@ -1,0 +1,10 @@
+name = "mailchannels-example-worker"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# A sender address on a domain with a Domain Lockdown record for your account.
+MAIL_FROM = "app@example.com"
+
+# MAILCHANNELS_API_KEY is a secret: run `npx cloudflare-mailchannels init`
+# (writes .dev.vars), or add `--secret` to store it with `wrangler secret put`.
